@@ -71,4 +71,3 @@ class GetData(object):
                 continue
             others_design_favor.append((user[0], np.array(user[34:37])))
         return others_design_favor
-
