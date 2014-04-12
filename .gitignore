@@ -1,0 +1,14 @@
+# ignore file type
+*.txt
+*.pdf
+*.*~
+*.pyc
+*.csv
+*.out
+*.swp
+*.dump
+*.o
+*.sh
+*.DS_Store
+morpheme_analysis
+*.am
