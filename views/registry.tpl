@@ -51,6 +51,7 @@
       <div class="progress-bar progress-bar-info" style="width:60%"></div>
     </div> -->
 
+% items = {'skl_direction':'統率力', 'skl_presentation':'プレゼン能力', 'skl_research':'リサーチ能力', 'skl_contentsmaking':'コンテンツメイキング能力', 'skl_ios': 'iOS', 'skl_android': 'Android', 'skl_windows8': 'Windows8アプリ', 'skl_html': 'HTML', 'skl_css': 'CSS', 'skl_javascript': 'Javascript', 'skl_python': 'Python', 'skl_ruby': 'Ruby', 'skl_php': 'PHP', 'skl_java': 'Java', 'skl_perl': 'Perl', 'skl_c': 'C言語', 'skl_cpp': 'C++', 'skl_wordpress': 'Wordpress'}
 
 <div class="container" style="margin-top:60px">
   <form class="form-horizontal">
@@ -67,13 +68,13 @@
 	<div class="col-lg-10">
           <div class="radio">
             <label>
-              <input name="optionsRadios" id="optionsRadios1" value="male" checked="" type="radio">
+              <input name="sex" id="optionsRadios1" value="male" checked="" type="radio">
               男
             </label>
           </div>
           <div class="radio">
             <label>
-              <input name="optionsRadios" id="optionsRadios2" value="female" type="radio">
+              <input name="sex" id="optionsRadios2" value="female" type="radio">
 	      女
             </label>
           </div>
@@ -82,9 +83,21 @@
 
       <legend>マネジメントスキル</legend>
       <div class="form-group">
-	<label for="select" class="col-lg-2 control-label">ディレクタ</label>
+	<label for="select" class="col-lg-2 control-label">統率力</label>
 	<div class="col-lg-10">
-          <select class="form-control" id="select">
+          <select class="form-control" name="skl_direction" id="select">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+	  <br />
+	</div>
+	<label for="select" class="col-lg-2 control-label">プレゼン能力</label>
+	<div class="col-lg-10">
+          <select class="form-control" name="skl_presentation" id="select">
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -94,9 +107,9 @@
           </select>
 	  <br />
 	</div>
-	<label for="select" class="col-lg-2 control-label">プレゼン</label>
+	<label for="select" class="col-lg-2 control-label">リサーチ能力</label>
 	<div class="col-lg-10">
-          <select class="form-control" id="select">
+          <select class="form-control" name="skl_research" id="select">
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -106,21 +119,9 @@
           </select>
 	  <br />
 	</div>
-	<label for="select" class="col-lg-2 control-label">リサーチ</label>
+	<label for="select" class="col-lg-2 control-label">コンテンツメイキング能力</label>
 	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">コンテンツメイキング</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
+          <select class="form-control" name="skl_contentsmaking" id="select">
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -134,57 +135,27 @@
 
       <legend>エンジニアスキル</legend>
       <div class="form-group">
-	<label for="select" class="col-lg-2 control-label">iOS</label>
+	% for k, v in items.items():
+
+	<label for="select" class="col-lg-2 control-label">{{v}}</label>
 	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control" name={{k}} id="select">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
 	  <br />
 	</div>
-	<label for="select" class="col-lg-2 control-label">Android</label>
+
+	% end
+
+	<legend>モチベーション</legend>
+	<label for="select" class="col-lg-2 control-label">モチベーション</label>
 	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">Windows8</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">C言語</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">C++</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
+          <select class="form-control" name="skl_motivation" id="select">
             <option>0</option>
             <option>1</option>
             <option>2</option>
