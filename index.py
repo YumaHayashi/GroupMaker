@@ -1,5 +1,5 @@
-#! /home/yuma/venv3.3/bin/python
-# -*- coding:utf-8 -*-
+#! /usr/bin/python
+# -*- coding: utf-8 -*-
 
 import sys
 import os
@@ -29,12 +29,12 @@ def server_static(filepath):
 #     return template(index_html, author='your name here')
 
 @route('/')
-@view('index')
+@view('landing')
 def index():
 	return dict(author='unknown')
 
-@route('/<author>')
-@view('index')
+@route('/registry')
+@view('registry')
 def test(author='unknown'):
 	return dict(author=author)
 
