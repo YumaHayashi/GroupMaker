@@ -56,7 +56,7 @@
 
 
 <div class="container" style="margin-top:60px">
-  <form class="form-horizontal" action='/registry'>
+  <form class="form-horizontal" action='/registry' method ="post">
     <fieldset>
       <legend>基本情報</legend>
       <div class="form-group">

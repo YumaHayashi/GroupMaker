@@ -14,14 +14,6 @@ import bottle_mysql
 app = Bottle()
 plugin = bottle_mysql.Plugin(dbuser='user', dbpass='pass', dbname='db')
 app.install(plugin)
-# ====================================
-#  adding static path
-# ====================================
-
-app = Bottle()
-# dbhost is optional, default is localhost
-plugin = bottle_mysql.Plugin(dbuser='ai', dbpass='miyuki', dbname='groupmaker')
-app.install(plugin)
 
 
 @route('/static/<filepath:path>')
@@ -33,15 +25,21 @@ def server_static(filepath):
 def index():
 	return dict(author='unknown')
 
-@route('/registry',method ="POST")
+@route('/registry')
 @view('registry')
 def resistry(author='unknown'):
 	return dict(author=author)
 
 @post('/registry')
-def submit(db):
+def submit():
 	name = request.forms.get('name')
-	db.excute("INSERT INTO users(name) VALUES('%s')"%name)
+	# db.excute("INSERT INTO users(name) VALUES('%s')",name)
+	return template(select,name=name)
+
+@route("/select")
+def select(name):
+	pass
+
 
 
 if __name__ == '__main__':
