@@ -12,18 +12,13 @@ from bottle import route,post, static_file, run, template, static_file, view,req
 import bottle_mysql
 
 app = Bottle()
-plugin = bottle_mysql.Plugin(dbuser='user', dbpass='pass', dbname='db')
-app.install(plugin)
-# ====================================
-#  adding static path
-# ====================================
-
-app = Bottle()
 # dbhost is optional, default is localhost
 plugin = bottle_mysql.Plugin(dbuser='ai', dbpass='miyuki', dbname='groupmaker')
 app.install(plugin)
 
-
+# ====================================
+#  adding static path
+# ====================================
 @route('/static/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='./static/')
