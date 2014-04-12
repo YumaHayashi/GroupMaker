@@ -41,10 +41,12 @@ def server_static(filepath):
 def index():
 	return dict(author='unknown')
 
-@route('/registry')
+@route('/registry',method ="POST")
 @view('registry')
-def test(author='unknown'):
+def resistry(author='unknown'):
 	return dict(author=author)
+
+
 
 # operate with only bottle
 

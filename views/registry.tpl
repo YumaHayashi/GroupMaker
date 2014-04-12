@@ -52,165 +52,18 @@
     </div> -->
 
 
-<div class="container" style="margin-top:60px">
-  <form class="form-horizontal">
-    <fieldset>
-      <legend>基本情報</legend>
-      <div class="form-group">
-	  <label for="name" class="control-label col-lg-2">ユーザ名</label>
-	<div class="col-lg-10">
-	  <input class="form-control" id="name" placeholder="UserName" type="text">
-	</div>
+    <div class="container" style="margin-top:60px">
+      <h1>GroupMaker For Life Is Tech</h1>
+      <div class="row">
+        <div class="col-sm-5 col-xs-5" style="background:white;"></div>
+        <div class="col-sm-2 col-xs-2">Mid</div>
+        <div class="col-sm-5 col-xs-5" style="background:white;"></div>
       </div>
-      <div class="form-group">
-	<label class="col-lg-2 control-label">性別</label>
-	<div class="col-lg-10">
-          <div class="radio">
-            <label>
-              <input name="optionsRadios" id="optionsRadios1" value="male" checked="" type="radio">
-              男
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input name="optionsRadios" id="optionsRadios2" value="female" type="radio">
-	      女
-            </label>
-          </div>
-	</div>
-      </div>
-
-      <legend>マネジメントスキル</legend>
-      <div class="form-group">
-	<label for="select" class="col-lg-2 control-label">ディレクタ</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">プレゼン</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">リサーチ</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">コンテンツメイキング</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-      </div>
-
-      <legend>エンジニアスキル</legend>
-      <div class="form-group">
-	<label for="select" class="col-lg-2 control-label">iOS</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">Android</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">Windows8</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">C言語</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-	<label for="select" class="col-lg-2 control-label">C++</label>
-	<div class="col-lg-10">
-          <select class="form-control" id="select">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-	  <br />
-	</div>
-      </div>
-
-      <div class="form-group">
-	<div class="col-lg-10 col-lg-offset-2">
-          <button type="submit" class="btn btn-primary">登録</button>
-          <button type="reset" class="btn btn-default">リセット</button>
-	</div>
-      </div>
-    </fieldset>
-  </form>
-
-
     </div>
 
 
 
-    <div id="footer" class="container"></div>
+    <div id="footer" class="container">footer</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
