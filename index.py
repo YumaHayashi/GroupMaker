@@ -6,7 +6,7 @@ import os
 sys.path.append('libs')
 
 
-from bottle import route,post, static_file, run, template, static_file, view,request,Bottle
+from bottle import route,post, static_file, run, template, static_file, view,request,Bottle,redirect
 # from bottle import route, static_file, default_app
 # from app.controllers import *
 import get_db
@@ -34,16 +34,30 @@ def registry(author="unknown"):
 
 @post('/registry')
 def submit():
-	name = request.forms.get('name')
-	query = "INSERT INTO users(name) VALUES('%s')" %name
+	registry_list =[]
+	query = "INSERT INTO users("
+	item_list = ['name','sex','skl_direction','skl_presentation','skl_research','skl_contentsmaking','skl_ios','skl_android','skl_windows8','skl_html','skl_css','skl_javascript','skl_python','skl_ruby','skl_php','skl_java', 'skl_perl','skl_c','skl_cpp','skl_wordpress','skl_motivation']
+	for item in item_list:
+		registry_list.append(request.forms.get(item))
+		if item != 'skl_motivation':
+			query += item +", "
+		else:
+			query += "%s) VALUES("%item
+	for value in registry_list[:-1]:
+		query += "'%s'," %value
+	query += "'%s');" %registry_list[-1]
 	dbcur.execute(query)
 	dbcon.commit()
-	return template('select',name = name)
+	path = '/design/'+registry_list[0]
+	redirect(path)
 
-@route("/select")
-def select():
-	pass
+@route("/design/<name>")
+# @view("design")
+def design(name):
+	return name
 
+# @route("/evaluate")
+# @view()
 
 
 if __name__ == '__main__':
