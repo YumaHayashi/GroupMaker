@@ -62,7 +62,7 @@
       <div class="form-group">
 	  <label for="name" class="control-label col-lg-2">ユーザ名</label>
 	<div class="col-lg-10">
-	  <input class="form-control" id="name" placeholder="UserName" type="text">
+	  <input class="form-control" id="name" name ="name" placeholder="UserName" type="text">
 	</div>
       </div>
 
