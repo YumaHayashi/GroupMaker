@@ -44,7 +44,6 @@ class Calc(object):
             other_score = np.linalg.norm(vec)
             sim.append((i, np.abs(user_score - other_score)))
         sim.sort( cmp=lambda x, y: cmp(x[1], y[1]) )
-        print 'prog_skill: ', map(lambda x: x[0], sim)
         return map(lambda x: x[0], sim)
 
 
