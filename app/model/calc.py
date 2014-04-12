@@ -28,11 +28,23 @@ class Calc(object):
         param: user = (id, vec), others = [(id, vec), ...]
         return: ランク済みユーザidのリスト
         """
+        # old
+        # sim = []
+        # for i, vec in others:
+        #     cs = cos_sim(user[1], vec)
+        #     sim.append((i, cs))
+        # sim.sort( cmp=lambda x, y: cmp(x[1], y[1]) )
+        # print 'prog: ', map(lambda x: x[0], sim)
+        # return map(lambda x: x[0], sim)
+
+        # new
         sim = []
+        user_score = np.linalg.norm(user[1])
         for i, vec in others:
-            cs = cos_sim(user[1], vec)
-            sim.append((i, cs))
+            other_score = np.linalg.norm(vec)
+            sim.append((i, np.abs(user_score - other_score)))
         sim.sort( cmp=lambda x, y: cmp(x[1], y[1]) )
+        print 'prog_skill: ', map(lambda x: x[0], sim)
         return map(lambda x: x[0], sim)
 
 
@@ -87,5 +99,6 @@ class Calc(object):
             total_rank[rank2[i]] += (1.0 / (i + 1.0))
             total_rank[rank3[i]] += (1.0 / (i + 1.0))
             total_rank[rank4[i]] += (1.0 / (i + 1.0))
-        total_rank.sort( cmp=lambda x, y: cmp(x[1], y[1]), reverse=True)
-        return map(lambda x: x[0], total_rank)
+        res = total_rank.items()
+        res.sort( cmp=lambda x, y: cmp(x[1], y[1]), reverse=True)
+        return map(lambda x: x[0], res)
