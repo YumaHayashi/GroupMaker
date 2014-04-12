@@ -6,14 +6,14 @@ import os
 sys.path.append('libs')
 
 
-from bottle import route,post, static_file, run, template, static_file, view,request,Bottle
+from bottle import route, post, static_file, run, template, static_file, view, request, Bottle
 # from bottle import route, static_file, default_app
 # from app.controllers import *
 import bottle_mysql
 
 app = Bottle()
 # dbhost is optional, default is localhost
-plugin = bottle_mysql.Plugin(dbuser='ai', dbpass='miyuki', dbname='groupmaker')
+plugin = bottle_mysql.Plugin(dbhost='localhost', dbuser='ai', dbpass='miyuki', dbname='groupmaker')
 app.install(plugin)
 
 # ====================================
@@ -43,7 +43,16 @@ def submit():
 def select(name):
 	pass
 
-
+@route('/show')
+def show(db):
+  db.execute('SELECT * FROM users')
+  result = db.fetchall()
+  view = ''
+  for row in result:
+    view += '<hr />'
+    view += 'id=' + str(row['id'])
+    view += 'name=' + str(row['name'].encode('UTF-8'))
+  return view
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 8080))
