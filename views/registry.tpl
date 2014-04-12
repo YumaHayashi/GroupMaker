@@ -55,7 +55,7 @@
 %engineer=[{'skl_ios': 'iOS'},{'skl_android': 'Android'},{'skl_windows8': 'Windows8アプリ'},{'skl_html': 'HTML'},{'skl_css': 'CSS'},{ 'skl_javascript': 'Javascript'},{'skl_python': 'Python'}, {'skl_ruby': 'Ruby'},{'skl_php': 'PHP'},{'skl_java': 'Java'},{'skl_perl': 'Perl'},{'skl_c': 'C言語'},{'skl_cpp': 'C++'},{'skl_wordpress': 'Wordpress'}]
 
 <div class="container" style="margin-top:60px">
-  <form class="form-horizontal" action='/resistry'>
+  <form class="form-horizontal" action='/registry'>
     <fieldset>
       <legend>基本情報</legend>
       <div class="form-group">
@@ -119,7 +119,7 @@
 
 	% end
 
-	<legend>モチベーション</legend>
+	<legend>性格</legend>
 	<label for="select" class="col-lg-2 control-label">モチベーション</label>
 	<div class="col-lg-10">
           <select class="form-control" name="skl_motivation" id="select">

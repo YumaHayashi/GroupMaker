@@ -5,28 +5,20 @@ import sys
 import os
 sys.path.append('libs')
 
-from bottle import route, static_file, run, template, static_file, view
+from bottle import route,post, static_file, run, template, static_file, view,request,Bottle
 # from bottle import route, static_file, default_app
 # from app.controllers import *
+import bottle_mysql
 
+app = Bottle()
+plugin = bottle_mysql.Plugin(dbuser='user', dbpass='pass', dbname='db')
+app.install(plugin)
 # ====================================
 #  adding static path
 # ====================================
 @route('/static/<filepath:path>')
 def server_static(filepath):
 	return static_file(filepath, root='./static/')
-
-# # # # # # # # # # test # # # # # # # # # #
-
-# index_html = '''my first web app! By {{ author }}'''
-
-# @route('/<name>')
-# def something(name=''):
-#     return template(index_html, author=name)
-
-# @route('/')
-# def index():
-#     return template(index_html, author='your name here')
 
 @route('/')
 @view('landing')
@@ -35,9 +27,14 @@ def index():
 
 @route('/registry')
 @view('registry')
-def test(author='unknown'):
+def resistry(author='unknown'):
 	return dict(author=author)
 
+@post('/registry')
+def submit(db):
+	name = request.forms.get('name')
+	db.excute("INSERT INTO users(name) VALUES('%s')"%name)
+	
 # operate with only bottle
 
 if __name__ == '__main__':
