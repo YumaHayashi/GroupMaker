@@ -35,7 +35,7 @@ def registry(author="unknown"):
 
 @route('/showgroup')
 @view('showgroup')
-def showgroup(author="unknown"):
+def showgroup():
 	team_info = []
 	total_team_number = 3
 	for i in range(total_team_number):
@@ -81,10 +81,9 @@ def submit_d():
 			query += " WHERE id = %s;"%user_id
 	dbcur.execute(query)
 	dbcon.commit()
-	return user_id
+	return template("waiting",user_id=user_id)
 
-# @route("/evaluate")
-# @view()
+
 
 
 if __name__ == '__main__':
