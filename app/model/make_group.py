@@ -7,6 +7,30 @@ sys.path.append('../../libs')
 import get_db
 import numpy as np
 
+def get_final_group(team_num=6):
+    dbcon, dbcur = get_db.get_db()
+    dbcur.execute('select * from users')
+    user_list = dbcur.fetchall()
+
+    # print user_list
+
+    # team_num = 3
+    people_num = len(user_list)
+
+    ranking_info = []
+
+    for i in range(people_num):
+        # print 'user', i+1, ': '
+        # print get_ranking.get_ranking(user_list, i+1)
+        ranking_info.append(get_ranking.get_ranking(user_list, i+1))
+
+    res = make_group(team_num, people_num, ranking_info)
+
+    dbcur.close()
+    dbcon.close()
+    return res
+
+
 def make_group(team_num, people_num, ranking_info):
     weight = range(people_num - 1, 0, -1)
     w1 = map(lambda x: zip(x, weight), ranking_info) # original ranking with inversed order score
@@ -27,8 +51,8 @@ def make_group(team_num, people_num, ranking_info):
     candidate = bidirectional_score.items()
     candidate.sort( cmp=lambda x, y: cmp(x[1], y[1]), reverse=True)
 
-    print 'sorted score:'
-    print candidate
+    # print 'sorted score:'
+    # print candidate
 
     limit_member_num = np.ceil(people_num / float(team_num))
     final_group = []
@@ -62,26 +86,42 @@ def make_group(team_num, people_num, ranking_info):
         else:                   # case both are used
             continue
 
-    print final_group
+    return final_group
 
-dbcon, dbcur = get_db.get_db()
-dbcur.execute('select * from users')
-user_list = dbcur.fetchall()
+def get_user_connection(team_num=6):
+    dbcon, dbcur = get_db.get_db()
+    dbcur.execute('select * from users')
+    user_list = dbcur.fetchall()
 
-# print user_list
+    # print user_list
 
-team_num = 3
-people_num = len(user_list)
+    # team_num = 3
+    people_num = len(user_list)
 
-ranking_info = []
+    ranking_info = []
 
-for i in range(people_num):
-    # print 'user', i+1, ': '
-    # print get_ranking.get_ranking(user_list, i+1)
-    ranking_info.append(get_ranking.get_ranking(user_list, i+1))
+    for i in range(people_num):
+        # print 'user', i+1, ': '
+        # print get_ranking.get_ranking(user_list, i+1)
+        ranking_info.append(get_ranking.get_ranking(user_list, i+1))
 
-make_group(team_num, people_num, ranking_info)
+    weight = range(people_num - 1, 0, -1)
+    w1 = map(lambda x: zip(x, weight), ranking_info) # original ranking with inversed order score
+    # w1 = [[(rank1, weight1), (rank2, weight2), ...], [...]]
 
-dbcur.close()
-dbcon.close()
+    bidirectional_score = {}
+    added_pairs = []
+    for i, ks in enumerate(w1):
+        id1 = i+1               # add 1 because of 0 origin
+        for id2, val in ks:
+            if set([id1, id2]) in added_pairs:
+                bidirectional_score[(id2, id1)] += val
+            else:
+                added_pairs.append(set([id1, id2]))
+                bidirectional_score.setdefault((id1, id2), 0)
+                bidirectional_score[(id1, id2)] += val
 
+    candidate = bidirectional_score.items()
+    candidate.sort( cmp=lambda x, y: cmp(x[1], y[1]), reverse=True)
+
+    return candidate
