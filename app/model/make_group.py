@@ -88,14 +88,13 @@ def make_group(team_num, people_num, ranking_info):
 
     return final_group
 
-def get_user_connection(team_num=6):
+def get_user_connection():
     dbcon, dbcur = get_db.get_db()
     dbcur.execute('select * from users')
     user_list = dbcur.fetchall()
 
     # print user_list
 
-    # team_num = 3
     people_num = len(user_list)
 
     ranking_info = []
