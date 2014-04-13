@@ -1,0 +1,29 @@
+.team-number {
+    background-color:#1995dc;
+    text-align: center;
+    font-size: 30pt;
+}
+
+.member-info {
+    text-aligh: center;
+    font-size: 25pt;
+    overflow:hidden;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.member-info img {
+    width: 12%;
+    float:left;
+    margin-right: 20px;
+}
+.power {
+    margin-left: 30px;
+    padding: 10px;
+    width: 70%;
+    float:left;
+    line-height: 2em;
+}
+hr {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
