@@ -15,7 +15,7 @@
         <header class="global-header js-global-header">
 
           <div class="logo">
-            <a href="index.html" data-ga="global-header.logo-click">techruit</a>
+            <a href="/" data-ga="global-header.logo-click">techruit</a>
           </div>
 
             <nav class="horizontal">

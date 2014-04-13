@@ -106,7 +106,7 @@ def waiting():
 	dbcur.execute(query)
 	cnt = dbcur.fetchall()[0][0]
 	if cnt > max_student:
-		draw_graph.make_network(n_team=6)
+		draw_graph.make_network(n_team=3)
 		redirect("/showgroup")
 	if cnt  < max_student:
 		return template("waiting",cnt = cnt,max_student=max_student)
@@ -120,7 +120,7 @@ def design():
 
 if __name__ == '__main__':
 	port = int(os.environ.get('PORT', 8080))
-	run(host='localhost', port=port, debug=True, reloader=True)
+	run(host='0.0.0.0', port=port, debug=True, reloader=True)
 
 	# ## in a case using gunicorn
 	# app = default_app()

@@ -28,17 +28,17 @@ conn = make_group.get_user_connection()
 
 def get_all(n_team):
 	user_st={}
-	team_li={}
 	user_skl = {u:li for u ,li in utility.get_team_power(id_name_map.keys())}
 	for user in id_name_map.keys():
  		user_st[user] ={"skill":sum(user_skl[user]),"name":id_name_map[user]} 
  	for i in range(n_team):
- 		for u in utility.get_team_member_id(i,n_team):
- 			user_st[u]["team"] = i
+ 		member_li = utility.get_team_member_id(i,n_team)
+ 		for u in member_li:
+ 			user_st[u]["team"]= i 
 	return user_st
 
 
-def make_network(n_team=4,limit_weight=8):
+def make_network(n_team=3,limit_weight=8):
 	user_d = get_all(n_team)
 	G = networkx.Graph()
 	for u,d in user_d.items():
