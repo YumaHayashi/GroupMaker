@@ -54,10 +54,10 @@
 
     <div class="container" style="margin-top:60px">
       <div class="row">
-    % for info in team_info:
+	% for info in team_info:
 	<div class="col-sm-3">-----team-----</div>
-    %     for member, power in info:
-        <div class="col-sm-3">name={{member}}, power={{power}}</div>
+	%     for member, power in info:
+        <div class="col-sm-3">name={{member}}, power={{list(power)}}</div>
 	% end
 	<br />
 	% end

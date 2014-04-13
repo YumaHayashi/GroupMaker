@@ -31,11 +31,8 @@
       <div class="collapse navbar-collapse target">
         <ul class="nav navbar-nav">
           <li class="active"><a href="">Registry</a></li>
-          <li><a href="">For Women</a></li>
+	  <!-- <li><a href="">For Women</a></li> -->
         </ul>
-        <form class="navbar-form navbar-right">
-          <input class="form-control col-lg-8" placeholder="Search" type="text">
-        </form>
 <!--         <ul class="nav navbar-nav navbar-right">
           <li><a href="">Link3</a></li>
           <li><a href="">Link4</a></li>
@@ -62,7 +59,7 @@
       </div>
     </div>
 
-    <div id="footer" class="container">footer</div>
+    <div id="footer" class="container"></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
