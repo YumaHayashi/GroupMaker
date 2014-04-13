@@ -18,7 +18,7 @@ import get_db
 # app.install(plugin)
 
 dbcon, dbcur = get_db.get_db()
-max_student = 5
+max_student = 20
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -55,7 +55,7 @@ def submit():
 		else:
 			query += "%s) VALUES("%item
 	for value in registry_list[:2]:
-		query += "'%s'," %value	
+		query += "'%s'," %value
 	for value in registry_list[2:-1]:
 		query += "%s," %value
 	query += "%s);" %registry_list[-1]
