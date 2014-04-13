@@ -4,6 +4,9 @@
 import networkx
 import make_group
 import matplotlib.pyplot as plt
+import sys
+sys.path.append('../../libs')
+import get_db
 
 
 connection = make_group.get_user_connection()
