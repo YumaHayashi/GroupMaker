@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><gexf xmlns:ns0="http://www.gexf.net/1.1draft/viz" version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+  <graph defaultedgetype="undirected" mode="static">
+    <nodes>
+      <node id="ken" label="ken">
+        <ns0:color b="0" g="128" r="255" />
+        <ns0:size value="67" />
+        <ns0:position x="0.404806395758" y="0.184240983877" z="None" />
+      </node>
+      <node id="ryohei" label="ryohei">
+        <ns0:color b="0" g="128" r="255" />
+        <ns0:size value="99" />
+        <ns0:position x="0.479430227145" y="0.323470699271" z="None" />
+      </node>
+      <node id="satoshi" label="satoshi">
+        <ns0:color b="0" g="128" r="255" />
+        <ns0:size value="70" />
+        <ns0:position x="0.368798030685" y="0.324608289365" z="None" />
+      </node>
+      <node id="masako" label="masako">
+        <ns0:color b="0" g="0" r="255" />
+        <ns0:size value="41" />
+        <ns0:position x="0.469857456197" y="0.237599738238" z="None" />
+      </node>
+      <node id="yuri" label="yuri">
+        <ns0:color b="0" g="255" r="255" />
+        <ns0:size value="83" />
+        <ns0:position x="1.0" y="0.0" z="None" />
+      </node>
+      <node id="Yuya Soneoka" label="Yuya Soneoka">
+        <ns0:color b="0" g="0" r="255" />
+        <ns0:size value="43" />
+        <ns0:position x="0.292738044059" y="0.281617569924" z="None" />
+      </node>
+      <node id="hajime" label="hajime">
+        <ns0:color b="0" g="255" r="255" />
+        <ns0:size value="89" />
+        <ns0:position x="0.598354930551" y="0.207216373892" z="None" />
+      </node>
+      <node id="haruki" label="haruki">
+        <ns0:color b="0" g="0" r="255" />
+        <ns0:size value="128" />
+        <ns0:position x="0.0" y="0.446053013152" z="None" />
+      </node>
+      <node id="yuki" label="yuki">
+        <ns0:color b="0" g="255" r="255" />
+        <ns0:size value="88" />
+        <ns0:position x="0.534712059381" y="0.170356361608" z="None" />
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="ken" target="satoshi" weight="16" />
+      <edge id="1" source="ken" target="masako" weight="8" />
+      <edge id="2" source="ken" target="yuri" weight="5" />
+      <edge id="3" source="ken" target="Yuya Soneoka" weight="13" />
+      <edge id="4" source="ken" target="hajime" weight="9" />
+      <edge id="5" source="ken" target="haruki" weight="7" />
+      <edge id="6" source="ken" target="yuki" weight="10" />
+      <edge id="7" source="ryohei" target="satoshi" weight="10" />
+      <edge id="8" source="ryohei" target="masako" weight="7" />
+      <edge id="9" source="ryohei" target="yuri" weight="6" />
+      <edge id="10" source="ryohei" target="Yuya Soneoka" weight="7" />
+      <edge id="11" source="ryohei" target="hajime" weight="6" />
+      <edge id="12" source="ryohei" target="haruki" weight="9" />
+      <edge id="13" source="ryohei" target="yuki" weight="9" />
+      <edge id="14" source="satoshi" target="masako" weight="9" />
+      <edge id="15" source="satoshi" target="Yuya Soneoka" weight="12" />
+      <edge id="16" source="satoshi" target="hajime" weight="13" />
+      <edge id="17" source="satoshi" target="haruki" weight="6" />
+      <edge id="18" source="satoshi" target="yuki" weight="6" />
+      <edge id="19" source="masako" target="yuri" weight="11" />
+      <edge id="20" source="masako" target="Yuya Soneoka" weight="16" />
+      <edge id="21" source="masako" target="hajime" weight="15" />
+      <edge id="22" source="masako" target="haruki" weight="13" />
+      <edge id="23" source="masako" target="yuki" weight="11" />
+      <edge id="24" source="yuri" target="hajime" weight="15" />
+      <edge id="25" source="yuri" target="haruki" weight="8" />
+      <edge id="26" source="yuri" target="yuki" weight="15" />
+      <edge id="27" source="Yuya Soneoka" target="hajime" weight="6" />
+      <edge id="28" source="Yuya Soneoka" target="haruki" weight="10" />
+      <edge id="29" source="Yuya Soneoka" target="yuki" weight="7" />
+      <edge id="30" source="hajime" target="haruki" weight="5" />
+      <edge id="31" source="haruki" target="yuki" weight="9" />
+    </edges>
+  </graph>
+</gexf>

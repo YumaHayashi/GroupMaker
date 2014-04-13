@@ -52,43 +52,24 @@
     </style>
   </head>
 
-  <!-- HTML code from Bootply.com editor -->
-  % design = [{"aaaaaa":"たなか"}]
-
   <body>
 
-    <div class="container-full">
-      <h1>デザインを乗っけるよー、{{name}}</h1>  
-    </div>
-     <form class="form-horizontal" action='/design' method ="post">
-          <div class="form-group">
-            % for d in design:
-      <label for="select" class="col-lg-2 control-label">{{d.values()[0]}}</label>
-      <div class="col-lg-10">
-              <select class="form-control" name="{{d.keys()[0]}}" id="select">
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-              </select>
-        <br />
-      </div>
-      % end
-    </div>
-        <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-              <button type="submit" class="btn btn-primary">登録</button>
-              <button type="reset" class="btn btn-default">リセット</button>
-      </div>
-    </div>
-    </form>
-
+<div id="sigma-container"></div>
+<script src="/static/js/sigma/sigma.js/sigma.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.parsers.gexf.min.js"></script>
+<script>
+  sigma.parsers.gexf(
+    '/static/output/output.gexf',
+    { // Here is the ID of the DOM element that
+      // will contain the graph:
+      container: 'sigma-container'
+    },
+    function(s) {
+      // This function will be executed when the
+      // graph is displayed, with "s" the related
+      // sigma instance.
+    }
+  );
+</script>    
   </body>
 </html>

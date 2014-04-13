@@ -64,6 +64,24 @@
       </div>
     </div>
 
+<div id="sigma-container"></div>
+<script src="/static/js/sigma/sigma.js/sigma.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.parsers.gexf.min.js"></script>
+<script>
+  sigma.parsers.gexf(
+    '/static/output/output.gexf',
+    { // Here is the ID of the DOM element that
+      // will contain the graph:
+      container: 'sigma-container'
+    },
+    function(s) {
+      // This function will be executed when the
+      // graph is displayed, with "s" the related
+      // sigma instance.
+    }
+  );
+</script>    
+
     <div id="footer" class="container"></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

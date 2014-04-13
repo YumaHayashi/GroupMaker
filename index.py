@@ -25,7 +25,7 @@ def server_static(filepath):
 	return static_file(filepath, root='./static/')
 
 @route('/')
-@view('landing')
+@view('index')
 def index():
 	return dict(author='unknown')
 
@@ -95,7 +95,10 @@ def waiting():
 		return template("waiting",cnt = cnt,max_student=max_student)
 
 
-
+@route("/design")
+@view("design")
+def design():
+	pass
 
 
 if __name__ == '__main__':

@@ -1,0 +1,66 @@
+
+* {
+	margin: 0;
+	padding: 0;
+
+}
+
+
+.global-header {
+	width: 96%;
+	padding: 2%;
+	position: absolute;
+	top: 0px;
+	color: #fff;
+	background-color: #1995dc;
+	border-bottom: 1px solid #adadad;
+}
+
+.global-header a {
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #EAE9F2;
+	font-family: "Meriyo"; 	
+}
+
+.horizontal ul, .horizontal li {
+	display: inline;
+	color: #EAE9F2;
+	font-family: "Meriyo"; 
+	font-weight: bold;
+	margin-left: 5%;
+}
+
+.logo {
+	font-family: "Meriyo"; 
+	font-weight: bold;
+	float: left;
+	margin-left: 10%;
+}
+
+.main img {
+	margin: 7% 0% 0% 15%;
+
+}
+
+.signup {
+	border:1px solid #EAE9F2;
+	border-radius: 3px; 
+	font-size:29px;
+	font-family:"Meiryo"; 
+	padding: 14px 14px 14px 14px; 
+	text-decoration:none; 
+	display:inline-block;
+	color: #EAE9F2;
+	background-color: #1995dc; 
+	border-radius: 10px;
+	margin-left: 43%;
+	margin-bottom: 5%;
+
+}
+
+
+
+
