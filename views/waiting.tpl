@@ -52,20 +52,14 @@
     </div> -->
 
 <div class="container" style="margin-top:60px">
-  <form class="form-horizontal" action='/d_select' method ="post">
-    <fieldset>
-      <input type="hidden" name="user_id" value="{{user_id}}" />
       <div style ="margin:100px auto,text-align:center,font-size:30px">
-      <legend>ご登録ありがとうございます<br>少しお待ちください</legend>
+      <legend>ご登録ありがとうございます<br>少しお待ちください<br>{{cnt}}/{{max_student}}</legend>
     </div>
       <div class="form-group">
 	<div class="col-lg-10 col-lg-offset-2">
-          <button type="submit" class="btn btn-primary">結果確認</button>
+        <a href="/waiting"></a><button type="submit" class="btn btn-primary">更新</button></a>
 	</div>
       </div>
-    </fieldset>
-  </form>
-
     </div>
 
     <div id="footer" class="container">footer</div>

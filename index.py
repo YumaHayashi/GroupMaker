@@ -18,6 +18,7 @@ import get_db
 # app.install(plugin)
 
 dbcon, dbcur = get_db.get_db()
+max_student = 5
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -81,7 +82,18 @@ def submit_d():
 			query += " WHERE id = %s;"%user_id
 	dbcur.execute(query)
 	dbcon.commit()
-	return template("waiting",user_id=user_id)
+	redirect("/waiting")
+
+@route("/waiting")
+def waiting():
+	query = "SELECT count(*) from users;"
+	dbcur.execute(query)
+	cnt = dbcur.fetchall()[0][0]
+	if cnt > max_student:
+		redirect("/showgroup")
+	if cnt  < max_student:
+		return template("waiting",cnt = cnt,max_student=max_student)
+
 
 
 
