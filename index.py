@@ -4,7 +4,8 @@
 import sys
 import os
 sys.path.append('libs')
-
+sys.path.append('app/model')
+import utility
 
 from bottle import route, post, static_file, run, template, static_file, view, request, Bottle
 # from bottle import route, static_file, default_app
@@ -31,6 +32,15 @@ def index():
 @view('registry')
 def registry(author="unknown"):
 	return dict(author=author)
+
+@route('/showgroup')
+@view('showgroup')
+def showgroup(author="unknown"):
+	team_info = []
+	total_team_number = 3
+	for i in range(total_team_number):
+		team_info.append(zip(utility.get_team_member(i, total_team_number), map(lambda x: x[1], utility.get_team_power(utility.get_team_member_id(i, total_team_number)))))
+	return dict(team_info=team_info)
 
 @post('/registry')
 def submit():

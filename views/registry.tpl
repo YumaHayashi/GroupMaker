@@ -30,8 +30,8 @@
 
       <div class="collapse navbar-collapse target">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="">Registry</a></li>
-	  <!-- <li><a href="">For Women</a></li> -->
+          <li class="active"><a href="/registry">Registry</a></li>
+	  <li><a href="/showgroup">ShowGroup</a></li>
         </ul>
 	<!-- <form class="navbar-form navbar-right">
         <input class="form-control col-lg-8" placeholder="Search" type="text">

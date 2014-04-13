@@ -23,3 +23,4 @@ def get_ranking(user_list, user_id):
     final_ranking = cl.final_ranking(rank1, rank2, rank3, rank4)
 
     return final_ranking
+
