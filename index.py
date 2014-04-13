@@ -11,6 +11,7 @@ from bottle import route,post, static_file, run, template, static_file, view,req
 
 # from app.controllers import *
 import get_db
+import draw_graph
 # import bottle_fbauth
 # import secret as sc
 # app = Bottle()
@@ -18,7 +19,7 @@ import get_db
 # app.install(plugin)
 
 dbcon, dbcur = get_db.get_db()
-max_student = 20
+max_student = 5
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -90,6 +91,7 @@ def waiting():
 	dbcur.execute(query)
 	cnt = dbcur.fetchall()[0][0]
 	if cnt > max_student:
+		draw_graph.make_network(n_team=6)
 		redirect("/showgroup")
 	if cnt  < max_student:
 		return template("waiting",cnt = cnt,max_student=max_student)

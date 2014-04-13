@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sample For Hackathon </title>
 
+    <link href="/static/css/style.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
@@ -63,23 +64,90 @@
 	% end
       </div>
     </div>
+<div style = "width:80%;margin:auto;margin-top:32px">
+<div style = "font-size:24px">ネットワーク</div>
+<div style = "float:right">
+<button class="btn btn-primary" id = "toggle-layout">Start Layout</button>
+<button class="btn btn-primary" id = "restart-camera">Restart Camera</button>
+</div>
+</div>
 
 <div id="sigma-container"></div>
 <script src="/static/js/sigma/sigma.js/sigma.min.js"></script>
 <script src="/static/js/sigma/sigma.js/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.parsers.gexf.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.layout.forceAtlas2.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.plugins.animate.min.js"></script>
+<script src="/static/js/sigma/sigma.js/plugins/sigma.plugins.neighborhoods.min.js"></script>
 <script>
-  sigma.parsers.gexf(
-    '/static/output/output.gexf',
-    { // Here is the ID of the DOM element that
-      // will contain the graph:
-      container: 'sigma-container'
+    sigma.parsers.gexf(
+     '/static/output/output.gexf', {
+      container: 'sigma-container',
+      settings: {
+        defaultLabelColor: '#fff',
+        sideMargin: 1
+        }
     },
     function(s) {
-      // This function will be executed when the
-      // graph is displayed, with "s" the related
-      // sigma instance.
-    }
-  );
+
+      s.graph.nodes().forEach(function(n) {
+        n.originalColor = n.color;
+      });
+      s.graph.edges().forEach(function(e) {
+        e.originalColor = e.color;
+      });
+      s.bind('clickNode', function(e) {
+      var nodeId = e.data.node.id,
+          toKeep = s.graph.neighbors(nodeId);
+      toKeep[nodeId] = e.data.node;
+
+      s.graph.nodes().forEach(function(n) {
+        if (toKeep[n.id])
+          n.color = n.originalColor;
+        else
+          n.color = '#eee';
+      });
+      s.graph.edges().forEach(function(e) {
+          if (toKeep[e.source] && toKeep[e.target])
+            e.color = e.originalColor;
+          else
+            e.color = '#eee';
+        });
+          s.refresh();
+      });
+
+      s.bind('clickStage', function(e) {
+        s.graph.nodes().forEach(function(n) {
+          n.color = n.originalColor;
+        });
+
+        s.graph.edges().forEach(function(e) {
+          e.color = e.originalColor;
+        });
+
+        // Same as in the previous event:
+        s.refresh();
+      });
+
+
+      document.getElementById('toggle-layout').addEventListener('click', function() {
+        if ((s.forceatlas2 || {}).isRunning) {
+          s.stopForceAtlas2();
+          document.getElementById('toggle-layout').innerHTML = 'Start layout';
+        } else {
+          s.startForceAtlas2();
+          document.getElementById('toggle-layout').innerHTML = 'Stop layout';
+        }
+      });
+      document.getElementById('restart-camera').addEventListener('click', function() {
+        s.cameras[0].goTo({
+          x: 0,
+          y: 0,
+          angle: 0,
+          ratio: 1
+        });
+      });
+    });
 </script>    
 
     <div id="footer" class="container"></div>

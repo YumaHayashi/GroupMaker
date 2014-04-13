@@ -38,7 +38,7 @@ def get_all(n_team):
 	return user_st
 
 
-def make_network(n_team=3,limit_weight=8):
+def make_network(n_team=4,limit_weight=8):
 	user_d = get_all(n_team)
 	G = networkx.Graph()
 	for u,d in user_d.items():

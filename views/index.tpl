@@ -20,7 +20,7 @@
 
             <nav class="horizontal">
           <ul class="horizontal">
-            <li><a href="/register">登録</a></li>
+            <li><a href="/registry">登録</a></li>
             <li><a href="/waiting">あなたのメンバー</a></li>
           </ul>
         </nav>
@@ -42,7 +42,7 @@
         </div>
 
         <div>
-      <a class="signup" href="/register">登録する</a>
+      <a class="signup" href="/registry">登録する</a>
         </div>
         </html>
 
