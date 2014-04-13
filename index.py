@@ -6,6 +6,8 @@ import os
 sys.path.append('libs')
 sys.path.append('app/model')
 import utility
+import numpy as np
+import glob
 
 from bottle import route,post, static_file, run, template, static_file, view,request,Bottle,redirect
 
@@ -42,7 +44,20 @@ def showgroup():
 	total_team_number = 3
 	for i in range(total_team_number):
 		team_info.append(zip(utility.get_team_member(i, total_team_number), map(lambda x: x[1], utility.get_team_power(utility.get_team_member_id(i, total_team_number)))))
-	return dict(team_info=team_info)
+
+	manage, prog, design = [], [], []
+	for team in team_info:
+		for member, power in team:
+			manage.append(list(power)[0])
+			prog.append(list(power)[1])
+			design.append(list(power)[2])
+	mu, sigma = [np.mean(manage), np.mean(prog), np.mean(design)], [np.std(manage), np.std(prog), np.std(design)]
+	manage_imgs = map(lambda x: '.' + x, glob.glob('./static/image/characters/Director*.jpg'))
+	prog_imgs = map(lambda x: '.' + x, glob.glob('./static/image/characters/Engineer*.jpg'))
+	design_imgs = map(lambda x: '.' + x, glob.glob('./static/image/characters/Design*.jpg'))
+	return dict(team_info=team_info, mu=mu, sigma=sigma, manage_imgs=manage_imgs, prog_imgs=prog_imgs, design_imgs=design_imgs)
+	
+
 
 @post('/registry')
 def submit():

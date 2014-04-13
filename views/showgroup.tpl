@@ -9,6 +9,7 @@
     <link href="/static/css/style.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,12 +56,56 @@
 
     <div class="container" style="margin-top:60px">
       <div class="row">
-	% for info in team_info:
-	<div class="col-sm-3">-----team-----</div>
-	%     for member, power in info:
-        <div class="col-sm-3">name={{member}}, power={{list(power)}}</div>
+	% import numpy as np
+    % for team_count, info in enumerate(team_info):
+	<div class="team-number">-----チーム No.{{team_count+1}}----- </div>
+    %     for member_count, (member, power) in enumerate(info):
+	% a, b, c = np.abs(list(power)[0] - mu[0])/sigma[0], np.abs(list(power)[1] - mu[1])/sigma[1], np.abs(list(power)[2] - mu[2])/sigma[2]
+
+	% best = a
+
+	% type = 'manage'
+
+	% if b > best:
+    %    best = b
+    %    type = 'prog'
+    %    if c > best:
+    %        best = c
+    %        type = 'design'
+    % end
+    % else:
+    %    if c > best:
+    %        best = c
+    %        type = 'design'
+    % end
+    % end
+    
+        <div class="member-info"> ジョブ ： 
+	  % if type == 'manage':
+	  ディレクター
+	  % elif type == 'prog':
+	  プログラマー
+	  % elif type == 'design':
+	  デザイナー
+	  % end
+	  　|　 なまえ ：{{member}}  
+	  <br />
+	  % if type == 'manage':
+	  <img src={{str(manage_imgs[member_count % 4])}} alt="directer">
+	  % elif type == 'prog':
+	  <img src={{str(prog_imgs[member_count % 4])}} alt="programmer">
+	  % elif type == 'design':
+	  <img src={{str(design_imgs[member_count % 4])}} alt="designer">
+	  % end
+	  <div class="power">
+	  <p>マネジメントパワー： {{int(np.abs(list(power)[0] - mu[0])/sigma[0] * 1000)}}ポイント</p> 
+	  <p>プログラミングパワー： {{int(np.abs(list(power)[1] - mu[1])/sigma[1] * 1000)}}ポイント</p>
+	  <p>デザインパワー： {{int(np.abs(list(power)[2] - mu[2])/sigma[2] * 1000)}}ポイント</p>
+	  </div>
+	<hr>
+	</div>
 	% end
-	<br />
+
 	% end
       </div>
     </div>
